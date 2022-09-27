@@ -1,0 +1,10 @@
+<h3>Add Leave Request</h3>
+<form [formGroup]="leaveForm" (ngSubmit)="Create()">
+  <div class="form-field">
+    <label mat-label for="name">Name: </label>
+    <input id="name" name="name" type="text" formControlName="name">
+  </div>
+  <div class="form-field">
+    <button mat-button typ="submit">Add Leave Request</button>
+  </div>
+</form>
