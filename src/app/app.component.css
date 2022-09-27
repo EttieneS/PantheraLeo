@@ -1,5 +1,0 @@
-<mat-toolbar color="primary">
-  <a routerLink="/todos/all"><button mat-raised-button>View All</button></a>
-  <a routerLink="/todos/add"><button mat-raised-button>Add</button></a>
-</mat-toolbar>
-<router-outlet></router-outlet>

@@ -5,7 +5,7 @@ import { Leave } from '../models/leave';
 import { Observable } from 'rxjs';
 import { Router } from "@angular/router";
 
-const baseURL = "http://localhost:19316/api/todo/";
+const baseURL = "http://localhost:5103/api/leave/";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,8 @@ export class LeaveService {
 
   constructor(private http: HttpClient) { }
 
-  create(data: Leave) {
-    return this.http.post(baseURL + 'create', data).subscribe(response => console.log(response));
+  Create(data: Leave) {
+    console.log("create leave service");
+    return this.http.post<Leave>(baseURL + 'create', data).subscribe(response => console.log(response));
   }
 }

@@ -24,6 +24,7 @@ export class CreateLeaveComponent implements OnInit {
   }
 
   Create() {
-
+    var id = this.leaveService.Create(this.leaveForm.value);
+    console.log("Create method.");
   }
 }
