@@ -15,8 +15,11 @@ export class LeaveService {
 
   constructor(private http: HttpClient) { }
 
-  Create(data: Leave) {
-    console.log("create leave service");
+  Create(data: Leave) {    
     return this.http.post<Leave>(baseURL + 'create', data).subscribe(response => console.log(response));
+  }
+
+  ViewAll(): Observable<Leave[]> {
+    return this.http.get<Leave[]>(baseURL + 'getAll');
   }
 }
