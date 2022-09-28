@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Leave } from '../../../models/leave';
+import { LeaveType } from '../../../models/leavetype';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, NgForm, Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from "@angular/router";
@@ -20,6 +21,7 @@ export class CreateLeaveComponent implements OnInit {
   leaveForm: FormGroup;
   leaveavailable: number;
   user: User;
+  public leavetypes: LeaveType[];
 
   constructor(
     private leaveService: LeaveService,
@@ -31,11 +33,15 @@ export class CreateLeaveComponent implements OnInit {
       surname: new FormControl(''),
       startdate: new FormControl(''),
       enddate: new FormControl(''),
-      reason: new FormControl('')
+      reason: new FormControl(''),
+      leavetype: new FormControl('')
     })
   }
 
   ngOnInit(): void {
+    this.leaveService.GetLeaveTypes().subscribe(res => {
+      this.leavetypes = res;
+    });
   }
 
   Create() {
@@ -55,24 +61,13 @@ export class CreateLeaveComponent implements OnInit {
 
     this.http.post<User>(baseURL + 'getbyname', entereduser).subscribe(response => {
       this.user = response;
-      console.log("name in service " + this.user.leave);
-      //return this.user;
 
       var leave = this.user.leave;
-      console.log("this.user name" + this.user.name);
       var leavetaken = this.user.leaveTaken;
 
       var availableleave = leave - leavetaken
       this.leaveavailable = Number(availableleave);
     });
-
-    //this.user = this.userService.GetByName(entereduser)
-    // var leave = this.user.leave;
-    // console.log("this.user name" + this.user.name);
-    // var leavetaken = this.user.leaveTaken;
-    //
-    // var availableleave = leave - leavetaken
-    // this.leaveavailable = Number(availableleave);
   }
 
   GetLeaveTypes() {
