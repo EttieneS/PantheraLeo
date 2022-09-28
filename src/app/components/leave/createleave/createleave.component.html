@@ -1,34 +1,36 @@
-<h3>Add Leave Request</h3>
-<label id="leaveavailable" name="leaveavailable">Leave availabble {{ leaveavailable }}</label>
-<form [formGroup]="leaveForm" (ngSubmit)="Create()">
-  <div class="form-field">
-    <label mat-label for="name">Name: </label>
-    <input id="name" name="name" type="text" formControlName="name" (change)="ShowAvailableLeave()">
-  </div>
-  <div class="form-field">
-    <label mat-label for="surname">Surname: </label>
-    <input id="surname" name="surname" type="text" formControlName="surname">
-  </div>
-  <div class="form-field">
-    <label mat-label for="startdate">Start Date: </label>
-    <input id="surname" name="startdate" type="date" formControlName="startdate">
-  </div>
-  <div class="form-field">
-    <label mat-label for="enddate">End Date: </label>
-    <input id="surname" name="enddate" type="date" formControlName="enddate">
-  </div>
-  <div class="form-field">
-    <label mat-label for="reason">Reason: </label>
-    <input id="reason" name="reason" type="text" formControlName="reason">
-  </div>
-  <div class="form-field">
-    <label mat-label for="leavetypedropdown">Type  of Leave: </label>
-    <select formControlName="leavetype" name="leavetype" id="leavetype">
-      <option value="default">Select type of leave</option>
-      <option *ngFor="let leavetype of leavetypes" [value]="leavetype.id">{{ leavetype.description }}</option>
-    </select>
-  </div>
-  <div class="form-field">
-    <button mat-button type="submit">Add Leave Request</button>
-  </div>
-</form>
+<h1>Add Leave Request</h1>
+<link rel="stylesheet" href="createleave.component.css">
+<body>
+  <form [formGroup]="leaveForm" (ngSubmit)="Create()">
+    <div class="form-field">
+      <label mat-label for="name">Name: </label>
+      <input id="name" name="name" type="text" formControlName="name" (change)="ShowAvailableLeave()">
+    </div>
+    <div class="form-field">
+      <label mat-label for="surname">Surname: </label>
+      <input id="surname" name="surname" type="text" formControlName="surname">
+    </div>
+    <div class="form-field">
+      <label mat-label for="startdate">Start Date: </label>
+      <input id="surname" name="startdate" type="date" formControlName="startdate">
+    </div>
+    <div class="form-field">
+      <label mat-label for="enddate">End Date: </label>
+      <input id="surname" name="enddate" type="date" formControlName="enddate">
+    </div>
+    <div class="form-field">
+      <label mat-label for="reason">Reason: </label>
+      <input id="reason" name="reason" type="text" formControlName="reason">
+    </div>
+    <div class="form-field">
+      <label mat-label for="leavetypedropdown">Type  of Leave: </label>
+      <select formControlName="leavetype" name="leavetype" id="leavetype">
+        <option value="default">Select type of leave</option>
+        <option *ngFor="let leavetype of leavetypes" [value]="leavetype.id">{{ leavetype.description }}</option>
+      </select>
+    </div>
+    <div class="form-field">
+      <button mat-button type="submit">Add Leave Request</button>
+    </div>
+  </form>
+</body>

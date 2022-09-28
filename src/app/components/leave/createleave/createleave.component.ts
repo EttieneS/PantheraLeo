@@ -9,6 +9,8 @@ import { UserService } from '../../../service/user.service';
 import { User } from "../../../models/user";
 import { HttpClient } from '@angular/common/http';
 
+import { MatButtonModule } from '@angular/material/button';
+
 const baseURL = "http://localhost:5103/api/user/";
 
 @Component({

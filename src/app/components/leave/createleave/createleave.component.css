@@ -1,0 +1,17 @@
+body {
+    margin:50px 0px; padding:0px;
+    text-align:center;
+    align:center;
+}
+
+H1 { text-align: center }
+
+label {
+  margin: 5px;
+  clear:both;
+}
+
+input {  
+  margin: 5px;
+  clear: both;
+}
